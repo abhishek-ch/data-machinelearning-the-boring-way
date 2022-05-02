@@ -244,6 +244,8 @@ env:
     value: "s3_conn"
   - name: AIRFLOW__LOGGING__REMOTE_BASE_LOG_FOLDER
     value: "s3://airflow-logs"
+  - name: AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL
+    value: '60'
 
 # Secrets for all airflow containers
 secret: []
@@ -1561,8 +1563,8 @@ dags:
     # ssh examples ssh://git@github.com/apache/airflow.git
     # git@github.com:apache/airflow.git
     # https example: https://github.com/apache/airflow.git
-    repo: https://API_KEY:API_SECRETx@github.com/abhishek-ch/data-machinelearning-the-boring-way.git
-    branch: master
+    repo: https://KEY:SECRET@github.com/abhishek-ch/data-machinelearning-the-boring-way.git
+    branch: main
     rev: HEAD
     depth: 1
     # the number of consecutive failures allowed before aborting
