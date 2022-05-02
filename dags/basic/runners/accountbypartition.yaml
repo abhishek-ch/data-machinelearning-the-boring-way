@@ -22,8 +22,8 @@ spec:
   imagePullPolicy: Never
   mainApplicationFile: local:///app/pyspark_jobs/accountbypartition.py
   arguments:
-    - s3a://spark-files/output/users/
-    - s3a://spark-files/output/users_account/
+    - s3a://spark-files/output/users2/
+    - s3a://spark-files/output/users2_account/
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure

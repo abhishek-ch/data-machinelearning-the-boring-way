@@ -4,8 +4,8 @@ metadata:
   name: abc-python-cli
 spec:
   containers:
-  - name: abc-python-cli
-    image: python-docker:test
-    command: ["python3","-m","test"]
-    imagePullPolicy: IfNotPresent
+    - name: abc-python-cli
+      image: python-docker:test
+      command: ["python3", "-m", "test"]
+      imagePullPolicy: IfNotPresent
   restartPolicy: Always

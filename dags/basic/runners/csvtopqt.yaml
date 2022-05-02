@@ -23,7 +23,7 @@ spec:
   mainApplicationFile: local:///app/pyspark_jobs/csvtoparquet.py
   arguments:
     - s3a://spark-files/rawdata/sample/users.csv
-    - s3a://spark-files/output/users/
+    - s3a://spark-files/output/users2/
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure
