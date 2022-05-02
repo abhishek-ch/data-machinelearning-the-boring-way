@@ -1,4 +1,20 @@
-# Setting Up Kind
+# Data & Machine Learning - The Boring Way
+
+This tutorial walks you through setting up and building a Data Engineering & Machine Learning Plaform. 
+The tutorial is designed to explore many different technologies for similar problem without any bias. This will help developers
+to pick a particular technology
+
+__This is not a Production Ready Setup and its as well not the best way__
+
+
+## Target Audience
+Data Engineers, Machine Learning Engineer, Data Scientist, SRE, Infrastructure Engineer, Data Analysts, Data Analytics Engineer
+
+## Prerequisites
+Docker Installed
+
+## Lab Basic Setup
+* [Setting Up Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 
 ## Install Kind Cluster
 `kind create cluster --name abc`
