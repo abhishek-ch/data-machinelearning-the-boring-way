@@ -1,0 +1,17 @@
+FROM pysparkexample:aws
+
+ARG spark_uid=185
+# ADD https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.7.6/hadoop-aws-2.7.6.jar /opt/spark/jars/
+# ADD https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk/1.7.4/aws-java-sdk-1.7.4.jar /opt/spark/jars/
+
+
+WORKDIR /app
+USER 0
+
+RUN mkdir -p /app/logs
+RUN mkdir -p /airflow/xcom/
+COPY pyspark_jobs/ /app/pyspark_jobs
+RUN zip -r pyspark_jobs.zip pyspark_jobs && \
+    chown -R ${spark_uid} /app && chown -R ${spark_uid} /airflow
+
+USER ${spark_uid}

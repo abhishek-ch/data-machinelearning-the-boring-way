@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: abc-python-cli
+spec:
+  containers:
+  - name: abc-python-cli
+    image: pysparkexample:aws
+    command: ["tail", "-f", "/dev/null"]
+    imagePullPolicy: IfNotPresent
+    resources:
+      requests:
+        cpu: 1000m
+        memory: "196Mi"
+      limits:
+        cpu: 2000m
+        memory: "1096Mi"
+  restartPolicy: Always
