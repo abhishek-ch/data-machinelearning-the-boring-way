@@ -78,4 +78,4 @@ with DAG(
     end = DummyOperator(task_id='end', dag=dag, trigger_rule='all_success')
     
     start >> print_variable >> csv_to_parquet >> csv_to_parquet_sensor
-    csv_to_parquet_sensor >> process_data >> process_data_sensor
+    csv_to_parquet_sensor >> process_data >> process_data_sensor >> end
