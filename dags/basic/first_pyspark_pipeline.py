@@ -38,7 +38,7 @@ with DAG(
         DESTINATION = context["dag_run"].conf["destination_path"]
 
         print('Source Path {0}'.format(SOURCE))
-        print('Source Path {0}'.format(DESTINATION))
+        print('Destination Path {0}'.format(DESTINATION))
 
     print_variable = PythonOperator(
         task_id='print_the_context',

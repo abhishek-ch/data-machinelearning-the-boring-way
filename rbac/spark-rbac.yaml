@@ -19,4 +19,3 @@ subjects:
   namespace: default
 
 # kubectl create clusterrolebinding spark-role --clusterrole=cluster-admin --serviceaccount=default:spark --namespace=default
-# kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=mango:spark --namespace=mango
