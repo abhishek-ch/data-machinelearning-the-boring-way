@@ -11,13 +11,21 @@ __This is not a Production Ready Setup and its as well not the best way__
 Data Engineers, Machine Learning Engineer, Data Scientist, SRE, Infrastructure Engineer, Data Analysts, Data Analytics Engineer
 
 ## Prerequisites
-Docker Installed
+* 🐳 Docker Installed 
+* [kubectl](https://kubernetes.io/docs/tasks/tools/) Installed, The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters
+* [Lens](https://k8slens.dev/) Installed, UI for Kubernetes.  
+_This is optional, kubectl is enough for getting all relevant stats from kubernetes cluster_
+* [Helm](https://helm.sh/) The package manager for Kubernetes
 
 ## Lab Basic Setup
 * [Setting Up Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
 
-## Install Kind Cluster
-`kind create cluster --name abc`
+## Install & Set Kind Cluster
+```
+$ kind create cluster --name abc
+
+$ kubectl config use-context kind-abc
+```
 
 ## Install MinIO
 `helm upgrade --install minio minio/minio -f minio_values.yaml -n default`

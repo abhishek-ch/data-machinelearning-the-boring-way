@@ -246,6 +246,8 @@ env:
     value: "s3://airflow-logs"
   - name: AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL
     value: '60'
+  - name: AIRFLOW__KUBERNETES__VERIFY_SSL
+    value: 'False'
 
 # Secrets for all airflow containers
 secret: []
@@ -1564,11 +1566,12 @@ dags:
     # git@github.com:apache/airflow.git
     # https example: https://github.com/apache/airflow.git
     repo: https://KEY:SECRET@github.com/abhishek-ch/data-machinelearning-the-boring-way.git
+    # repo: ssh://git@github.com:abhishek-ch/data-machinelearning-the-boring-way.git
     branch: main
     rev: HEAD
     depth: 1
     # the number of consecutive failures allowed before aborting
-    maxFailures: 0
+    maxFailures: 1
     # subpath within the repo where dags are located
     # should be "" if dags are at repo root
     subPath: "dags"
@@ -1598,7 +1601,7 @@ dags:
     #     # key needs to be gitSshKey
     #     gitSshKey: <base64_encoded_data>
     # and specify the name of the secret below
-    # sshKeySecret: airflow-ssh-secret
+    # sshKeySecret: airflow-git-ssh-secret
     #
     # If you are using an ssh private key, you can additionally
     # specify the content of your known_hosts file, example:

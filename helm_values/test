@@ -1,0 +1,5 @@
+kubectl create secret generic airflow-git-ssh-secret \
+  --from-file=gitSshKey=abcairflow \
+  --from-file=known_hosts=/Users/abhishekchoudhary/.ssh/known_hosts \
+  --from-file=id_ed25519.pub=abcairflow.pub \
+  -n default
