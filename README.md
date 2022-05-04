@@ -10,6 +10,36 @@ __This is not a Production Ready Setup and its as well not the best way__
 ## Target Audience
 Data Engineers, Machine Learning Engineer, Data Scientist, SRE, Infrastructure Engineer, Data Analysts, Data Analytics Engineer
 
+# Expected Technologies & Workflow 
+
+## Data Engineering & Analytics
+- [ ] Kubernetes Kind Installation
+- [ ] [Apache Airflow](https://airflow.apache.org/) on top of Kubernetes & Running an end to end Airflow Workflow using Kubernetes Executor
+- [ ] [Apache Spark](https://spark.apache.org/) Deploy Apache Spark on Kubernetes and run workflow 
+- [ ] [Prefect](https://www.prefect.io/) Setup & Running an end to end Workflow
+- [ ] [Dagster](https://dagster.io/) Setup & Running an end to end Workflow
+- [ ] [Mino](https://min.io/) Integrate Object Storage on top of Kubernetes and use minio interface for simulating the s3
+- [ ] [Apache Hive](https://cwiki.apache.org/confluence/display/hive/design) Setting up Hive & Hive Metastore
+- [ ] Deploy Trino & Open Source [Presto](https://prestodb.io/) and run dana Analytics queries.
+- [ ] Integrate [Superset](https://superset.apache.org/) & [Metabase](https://www.metabase.com/) to run visualization. Integrate Presto with the visualization system.
+- [ ] Open Table Format using [Delta](https://docs.delta.io/latest/quick-start.html)
+- [ ] Open Table Format using [Apache Iceberg](https://iceberg.apache.org/)
+- [ ] Open Table Format using [Apache Hudi](https://hudi.apache.org/)
+- [ ] Metadata Management using [Amundsen](https://www.amundsen.io/)
+- [ ] Metadata Management using [Datahub](https://datahubproject.io/)
+- [ ] Setting up [Apache Kafka](https://kafka.apache.org/) distributed event streaming platform
+- [ ] Using Spark Structered Streaming to run an end-2-end pipeline over any realtime data sources
+- [ ] Using [Apache Flink](https://flink.apache.org/) to run an end-2-end pipeline over any realtime data sources
+- [ ] [Redpanda](https://redpanda.com/), streaming data platform to run similar workflow
+- [ ] [Airbyte](https://airbyte.com/) Data Integration platform
+- [ ] [Talend](https://www.talend.com/products/data-integration/) UI based Data Integration
+- [ ] [DBT](https://www.getdbt.com/) DBT Sql Pipeline to compare with Spark and other tech
+- [ ] [Debezium](https://debezium.io/) Change Data Capture using Debezium to sync multiple databases
+
+## Monitoring & Observability
+
+## Machine Learning
+
 ## Prerequisites
 * 🐳 Docker Installed 
 * [kubectl](https://kubernetes.io/docs/tasks/tools/) Installed, The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters
