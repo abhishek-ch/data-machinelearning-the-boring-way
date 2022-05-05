@@ -1,7 +1,7 @@
 # Data & Machine Learning - The Boring Way
 
-This tutorial walks you through setting up and building a Data Engineering & Machine Learning Plaform. 
-The tutorial is designed to explore many different technologies for similar problem without any bias. 
+This tutorial walks you through setting up and building a Data Engineering & Machine Learning Platform. 
+The tutorial is designed to explore many different technologies for the similar problems without any bias. 
 
 __This is not a Production Ready Setup__
 
@@ -13,7 +13,7 @@ Data Engineers, Machine Learning Engineer, Data Scientist, SRE, Infrastructure E
 ## Data Engineering & Analytics
 - [X] Kubernetes Kind Installation [link](/docs/01-setting-up-cluster.md)
 - [X] [Apache Airflow](https://airflow.apache.org/) on top of Kubernetes & Running an end to end Airflow Workflow using Kubernetes Executor
-- [X] [Apache Spark](https://spark.apache.org/) Deploy Apache Spark on Kubernetes and run an example [link](/docs/02-setting-up-apachespark-k8s)
+- [X] [Apache Spark](https://spark.apache.org/) Deploy Apache Spark on Kubernetes and run an example [link](/docs/02-setting-up-apachespark-k8s.md)
 - [ ] [Prefect](https://www.prefect.io/) Setup & Running an end to end Workflow
 - [ ] [Dagster](https://dagster.io/) Setup & Running an end to end Workflow
 - [X] [Mino](https://min.io/) Integrate Object Storage on top of Kubernetes and use minio interface for simulating the s3
