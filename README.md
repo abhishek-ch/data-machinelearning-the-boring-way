@@ -1,11 +1,9 @@
 # Data & Machine Learning - The Boring Way
 
 This tutorial walks you through setting up and building a Data Engineering & Machine Learning Plaform. 
-The tutorial is designed to explore many different technologies for similar problem without any bias. This will help developers
-to pick a particular technology
+The tutorial is designed to explore many different technologies for similar problem without any bias. 
 
-__This is not a Production Ready Setup and its as well not the best way__
-
+__This is not a Production Ready Setup__
 
 ## Target Audience
 Data Engineers, Machine Learning Engineer, Data Scientist, SRE, Infrastructure Engineer, Data Analysts, Data Analytics Engineer
@@ -13,12 +11,13 @@ Data Engineers, Machine Learning Engineer, Data Scientist, SRE, Infrastructure E
 # Expected Technologies & Workflow 
 
 ## Data Engineering & Analytics
-- [ ] Kubernetes Kind Installation
-- [ ] [Apache Airflow](https://airflow.apache.org/) on top of Kubernetes & Running an end to end Airflow Workflow using Kubernetes Executor
-- [ ] [Apache Spark](https://spark.apache.org/) Deploy Apache Spark on Kubernetes and run workflow 
+- [X] Kubernetes Kind Installation [link](/docs/01-setting-up-cluster.md)
+- [X] [Apache Airflow](https://airflow.apache.org/) on top of Kubernetes & Running an end to end Airflow Workflow using Kubernetes Executor
+- [X] [Apache Spark](https://spark.apache.org/) Deploy Apache Spark on Kubernetes and run an example [link](/docs/02-setting-up-apachespark-k8s)
 - [ ] [Prefect](https://www.prefect.io/) Setup & Running an end to end Workflow
 - [ ] [Dagster](https://dagster.io/) Setup & Running an end to end Workflow
-- [ ] [Mino](https://min.io/) Integrate Object Storage on top of Kubernetes and use minio interface for simulating the s3
+- [X] [Mino](https://min.io/) Integrate Object Storage on top of Kubernetes and use minio interface for simulating the s3
+- [ ] Set up an ETL job running end-2-end on apache airflow. This job contains Spark & Python Operator
 - [ ] [Apache Hive](https://cwiki.apache.org/confluence/display/hive/design) Setting up Hive & Hive Metastore
 - [ ] Deploy Trino & Open Source [Presto](https://prestodb.io/) and run dana Analytics queries.
 - [ ] Integrate [Superset](https://superset.apache.org/) & [Metabase](https://www.metabase.com/) to run visualization. Integrate Presto with the visualization system.
@@ -37,8 +36,23 @@ Data Engineers, Machine Learning Engineer, Data Scientist, SRE, Infrastructure E
 - [ ] [Debezium](https://debezium.io/) Change Data Capture using Debezium to sync multiple databases
 
 ## Monitoring & Observability
+- [ ] [Grafana]([https://](https://grafana.com/)) Setting Up Grafana for Monitoring components. Start with Monitoring Pods
+- [ ] [FluentD](https://www.fluentd.org/) logging metrics from pods & interact the same with Monitoring layer
+- [ ] Setting up a full Monitoring and Alerting Platform & integrate minitoring across other technologies
+- [ ] Setting up an Observability system 
 
 ## Machine Learning
+- [ ] Setup [Ray](https://www.ray.io/) for Data Transformations
+- [ ] Use [Scikit-learn](https://scikit-learn.org/) for an example ML training
+- [ ] Setup [Argo Pipeline](https://argoproj.github.io/) for deploying ML Jobs
+- [ ] Setup [Flyte](https://flyte.org/) Orchestrator for pythonic Deployment
+- [ ] Use [Pytorch Lightening](https://www.pytorchlightning.ai/) for runing ML training
+- [ ] Use Tensorflow for running ML training
+- [ ] Setup ML End-2-End Workflow on Flyte
+- [ ] Deploy [MLFlow](https://www.mlflow.org/docs/latest/index.html) for ML Model Tracking & Experimentation
+- [ ] Deploy [BentoML](https://www.bentoml.com/) For deploying ML Model
+- [ ] Deploy [Sendon Core](https://github.com/SeldonIO/seldon-core) for ML Model Management
+- [ ] Integrate MLflow with Seldon Core 
 
 ## Prerequisites
 * 🐳 Docker Installed 
@@ -55,34 +69,4 @@ _This is optional, kubectl is enough for getting all relevant stats from kuberne
 $ kind create cluster --name abc
 
 $ kubectl config use-context kind-abc
-```
-
-## Install MinIO
-`helm upgrade --install minio minio/minio -f minio_values.yaml -n default`
-
-* Set the Acces key and Secret key 
-* Create Some default Buckets
-* Change the PVC Sizse and resources
-* Port forward on 9001
-* Create Airflow connection named s3_conn for Remote logging
-  * Add Extra 
-    `{"aws_access_key_id": "abhishek", "aws_secret_access_key": "choudhary123", "host": "http://minio:9000"}`
-    Host is --endpoint_url and provide minio service http address
-* 
-
-## Setting up Airflow Remote logging
-
-
-## Setting Up Apache Spark in K8s 
-
-
-## Load Docker Images in Kind
-```sh
-kind load docker-image --name abc gcr.io/spark-operator/spark-operator:3.1.1
-kind load docker-image --name abc docker.io/apache/airflow:2.2.4
-kind load docker-image --name abc docker.io/apache/airflow-statsd-exporter-2021.04.28-v0.17.0
-kind load docker-image --name abc docker.io/bitnami/postgresql:11.12.0-debian-10-r44
-kind load docker-image --name abc gcr.io/spark-operator/spark-operator:3.1.1
-kind load docker-image --name abc quay.io/minio/mc:RELEASE.2022-04-16T21-11-21Z
-kind load docker-image --name abc quay.io/minio/minio:RELEASE.2022-04-26T01-20-24Z
 ```
