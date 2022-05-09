@@ -11,13 +11,11 @@ _[RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) is Role b
   K8s RBAC is Rest based and maps http verbs to the permissions_
   > A RoleBinding grants permissions within a specific namespace whereas a ClusterRoleBinding grants that access cluster-wide
 
-* Execute the Spark RBAC 
-  `kubectl apply -f spark-rbac.yaml -n values`
 
 * Go to `helm_values/sparkoperator_values.yaml` Read [more](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator).
 
 ### Exploring sparkoperator_values.yaml
- 1. As spark rbac is already created, rbac & serviceAccounts is set to `false`
+ 1. Spark createRole and createClusterRole is set `true`
  2. For now, we didn't enable monitoring using graffana or external service, so metrics & podMonitor is set to `false`
  3. __resources__ entirely depends system/docker capacity, change it accordingly
 ```
@@ -33,5 +31,10 @@ resources:
 ```
 $ helm repo add spark-operator https://googlecloudplatform.github.io/spark-on-k8s-operator
 
-$ helm install spark-operator spark-operator/spark-operator -n default -f sparkoperator_values.yaml
+$ helm install spark-operator spark-operator/spark-operator -n spark -f sparkoperator_values.yaml --create-namespace
 ```
+
+
+__Spark will create all pods inside _spark_ namespace only__
+
+* Test Application by running `kubectl apply -f examples/spark/pi.yaml -n spark` 

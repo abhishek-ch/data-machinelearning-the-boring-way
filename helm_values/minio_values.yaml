@@ -170,7 +170,7 @@ service:
 ##
 
 ingress:
-  enabled: false
+  enabled: true
   # ingressClassName: ""
   labels: {}
     # node-role.kubernetes.io/ingress: platform
@@ -313,8 +313,8 @@ users:
   ## Add new policies as explained here https://docs.min.io/docs/minio-multi-user-quickstart-guide.html
   ## NOTE: this will fail if LDAP is enabled in your MinIO deployment
   ## make sure to disable this if you are using LDAP.
-  - accessKey: abhishek
-    secretKey: choudhary123
+  - accessKey: developer
+    secretKey: software123
     policy: consoleAdmin
   # Or you can refer to specific secret
   #- accessKey: externalSecret
@@ -344,7 +344,7 @@ makeUserJob:
 buckets:
   - name: airflow-logs
     policy: none
-  - name: spark-files
+  - name: test-files
     policy: none
   #   # Name of the bucket
   # - name: bucket1

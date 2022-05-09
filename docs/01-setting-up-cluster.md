@@ -4,11 +4,24 @@ Setting up Kind Cluster, example __abc__
 
 > _Kind Cluster usually prefix desired name with kind, so if you are creating a cluster with name __abc__ the name will be __kindabc___
 
+## Install & Set Kind Cluster
+```
+$ kind create cluster --name abc
+
+$ kubectl config use-context kind-abc
+```
+
 ## Validating kind Cluster
 `kind get clusters`
 
 > Finding the node name for a given and
 `kubectl get nodes -n default`
+
+> Setting the Kind Cluster Context 
+`kubectl cluster-info --context kind-abc`
+
+
+
 
 ## Loading The Desired images
 
@@ -25,6 +38,7 @@ kind load docker-image --name abc docker.io/bitnami/postgresql:11.12.0-debian-10
 kind load docker-image --name abc gcr.io/spark-operator/spark-operator:3.1.1
 kind load docker-image --name abc quay.io/minio/mc:RELEASE.2022-04-16T21-11-21Z  
 kind load docker-image --name abc quay.io/minio/minio:RELEASE.2022-04-26T01-20-24Z
+kind load docker-image --name abc pysparkexample:aws
 ```
 ### Verify all loaded Images
 

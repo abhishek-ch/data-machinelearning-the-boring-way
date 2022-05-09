@@ -63,10 +63,3 @@ _This is optional, kubectl is enough for getting all relevant stats from kuberne
 
 ## Lab Basic Setup
 * [Setting Up Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
-
-## Install & Set Kind Cluster
-```
-$ kind create cluster --name abc
-
-$ kubectl config use-context kind-abc
-```

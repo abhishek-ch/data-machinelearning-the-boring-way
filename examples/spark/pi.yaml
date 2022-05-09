@@ -16,58 +16,34 @@
 # Support for Python is experimental, and requires building SNAPSHOT image of Apache Spark,
 # with `imagePullPolicy` set to Always
 
-# Configurations Can be found
-# https://github.com/GoogleCloudPlatform/spark-on-k8s-operator/blob/master/docs/api-docs.md 
-
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
   name: pyspark-pi
-  namespace: default
 spec:
-  sparkConf:
-    "spark.ui.port": "4045"
-    "spark.eventLog.enabled": "true"
-    "spark.eventLog.dir": "s3a://logs/spark-events/"
-    "spark.hadoop.fs.s3a.access.key": "abhishek"
-    "spark.hadoop.fs.s3a.secret.key": "choudhary123"
-    "spark.hadoop.fs.s3a.endpoint": "http://minio:9000"
-    "spark.hadoop.fs.s3n.impl": "org.apache.hadoop.fs.s3n.S3AFileSystem"
-    "spark.hadoop.fs.s3n.fast.upload": "true"
-    "spark.hadoop.fs.s3a.fast.upload.buffer": "disk"
-    # "spark.driver.extraJavaOptions": "-Divy.cache.dir=/tmp -Divy.home=/tmp -Diop.version=4.1.0.0 -Dcom.amazonaws.services.s3.enableV4=true"
-    # "spark.executor.extraJavaOptions": "-Divy.cache.dir=/tmp -Divy.home=/tmp -Diop.version=4.1.0.0 -Dcom.amazonaws.services.s3.enableV4=true"
-    "spark.hadoop.fs.s3a.connection.ssl.enabled": "false"
-    "spark.hadoop.fs.s3a.path.style.access": "true"
-  hadoopConf:
-    "fs.s3a.endpoint": "http://minio:9000"
-    "fs.s3a.access.key": "abhishek"
-    "fs.s3a.secret.key": "choudhary123"
-    "fs.s3a.path.style.access": "true"
-    "fs.s3a.impl": "org.apache.hadoop.fs.s3a.S3AFileSystem"
   type: Python
   pythonVersion: "3"
   mode: cluster
-  image: "pysparkexample:aws"
-  imagePullPolicy: Never
+  image: "gcr.io/spark-operator/spark-py:v3.1.1"
+  imagePullPolicy: IfNotPresent
   mainApplicationFile: local:///opt/spark/examples/src/main/python/pi.py
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure
-    onFailureRetries: 0
-    onFailureRetryInterval: 6
-    onSubmissionFailureRetries: 0
+    onFailureRetries: 3
+    onFailureRetryInterval: 10
+    onSubmissionFailureRetries: 5
     onSubmissionFailureRetryInterval: 20
   driver:
-    coreRequest: "500m"
+    cores: 1
     coreLimit: "1200m"
     memory: "512m"
     labels:
       version: 3.1.1
     serviceAccount: spark
   executor:
-    coreRequest: "250m"
-    instances: 2
+    cores: 1
+    instances: 1
     memory: "512m"
     labels:
       version: 3.1.1

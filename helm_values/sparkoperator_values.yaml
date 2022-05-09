@@ -34,16 +34,16 @@ rbac:
 serviceAccounts:
   spark:
     # -- Create a service account for spark apps
-    create: false
+    create: true
     # -- Optional name for the spark service account
-    name: ""
+    name: "spark"
     # -- Optional annotations for the spark service account
     annotations: {}
   sparkoperator:
     # -- Create a service account for the operator
-    create: false
+    create: true
     # -- Optional name for the operator service account
-    name: ""
+    name: "spark-operator"
     # -- Optional annotations for the operator service account
     annotations: {}
 
