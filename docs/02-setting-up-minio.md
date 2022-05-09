@@ -14,6 +14,15 @@ https://github.com/minio/minio
 * Port forward on 9001
 * Create Airflow connection named s3_conn for Remote logging
   * Add Extra 
-    `{"aws_access_key_id": "abhishek", "aws_secret_access_key": "choudhary123", "host": "http://minio:9000"}`
+    `{"aws_access_key_id": "developer", "aws_secret_access_key": "software123", "host": "http://minio:9000"}`
     Host is --endpoint_url and provide minio service http address
-* 
+* Try to port forward on minio service `kubectl port-forward services/minio-console 9001:9001 -n default`
+  
+### Login with helm provuded credentials `developer / software123`
+
+  ![](images/miniologin.png)
+
+
+### After Login Screen 
+
+![](images/minio2.png)

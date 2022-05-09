@@ -1,14 +1,13 @@
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
-  name: spark-word-count-1
-  namespace: default
+  name: spark-word-count
 spec:
   sparkConf:
     "spark.ui.port": "4045"
     "spark.eventLog.enabled": "false"
-    "spark.hadoop.fs.s3a.access.key": "abhishek"
-    "spark.hadoop.fs.s3a.secret.key": "choudhary123"
+    "spark.hadoop.fs.s3a.access.key": "developer"
+    "spark.hadoop.fs.s3a.secret.key": "software123"
     "spark.hadoop.fs.s3a.endpoint": "http://minio:9000"
     "spark.hadoop.fs.s3n.impl": "org.apache.hadoop.fs.s3n.S3AFileSystem"
     "spark.hadoop.fs.s3n.fast.upload": "true"
@@ -18,11 +17,11 @@ spec:
   type: Python
   pythonVersion: "3"
   mode: cluster
-  image: "pysparkexample:aws"
+  image: "pysparkexample:aws2"
   imagePullPolicy: Never
   mainApplicationFile: local:///opt/spark/examples/src/main/python/wordcount.py
   arguments:
-    - s3a://spark-files/rawdata/sample/users.csv
+    - s3a://test-files/sparktemp/files.txt
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure
@@ -31,15 +30,15 @@ spec:
     onSubmissionFailureRetries: 1
     onSubmissionFailureRetryInterval: 1
   driver:
-    coreRequest: "500m"
-    coreLimit: "1000m"
+    cores: 1
+    coreLimit: "1200m"
     memory: "512m"
     labels:
       version: 3.1.1
     serviceAccount: spark
   executor:
-    coreRequest: "250m"
-    instances: 2
+    cores: 1
+    instances: 1
     memory: "512m"
     labels:
       version: 3.1.1

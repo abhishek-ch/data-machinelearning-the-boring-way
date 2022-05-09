@@ -31,10 +31,18 @@ resources:
 ```
 $ helm repo add spark-operator https://googlecloudplatform.github.io/spark-on-k8s-operator
 
-$ helm install spark-operator spark-operator/spark-operator -n spark -f sparkoperator_values.yaml --create-namespace
+$ helm install spark-operator spark-operator/spark-operator -n default -f sparkoperator_values.yaml --create-namespace
 ```
 
 
 __Spark will create all pods inside _spark_ namespace only__
 
-* Test Application by running `kubectl apply -f examples/spark/pi.yaml -n spark` 
+## Test 1
+* Test Application by running `kubectl apply -f examples/spark/pi.yaml -n default` . Check the logs, a pi value will be logged if passed
+
+## Test 2 
+* Login to __minio__ and choose `test-files` bucket
+* Upload any temporary file in the bucket
+* Go to the director ../examples/spark
+* Execute the spark wordcount job `kubectl apply -f examples/spark/wordcount.yaml -n default`
+Spark should be able to read from minio which works like AWS s3
