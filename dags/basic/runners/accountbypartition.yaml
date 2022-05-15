@@ -23,7 +23,7 @@ spec:
   mainApplicationFile: local:///app/pyspark_jobs/accountbypartition.py
   arguments:
     - {{ dag_run.conf.destination }}
-    - f"{{ dag_run.conf.destination }}_account"
+    - "{{ dag_run.conf.destination }}_account"
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure
