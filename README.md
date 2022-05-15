@@ -12,8 +12,8 @@ Data Engineers, Machine Learning Engineer, Data Scientist, SRE, Infrastructure E
 
 ## Data Engineering & Analytics
 - [X] Kubernetes Kind Installation [link](/docs/01-setting-up-cluster.md)
-- [X] [Mino](https://min.io/) Integrate Object Storage on top of Kubernetes and use minio interface for simulating the s3 [link](/docs/02-setting-up-minio.md)
-- [X] [Apache Airflow](https://airflow.apache.org/) on top of Kubernetes & Running an end to end Airflow Workflow using Kubernetes Executor
+- [X] [MinIO](https://min.io/) Integrate Object Storage on top of Kubernetes and use minio interface for simulating the s3 [link](/docs/02-setting-up-minio.md)
+- [X] [Apache Airflow](https://airflow.apache.org/) on top of Kubernetes & Running an end to end Airflow Workflow using Kubernetes Executor [link](docs/04-setting-up-airflow.md)
 - [X] [Apache Spark](https://spark.apache.org/) Deploy Apache Spark on Kubernetes and run an example [link](/docs/03-setting-up-apachespark-k8s.md)
 - [ ] [Prefect](https://www.prefect.io/) Setup & Running an end to end Workflow
 - [ ] [Dagster](https://dagster.io/) Setup & Running an end to end Workflow
