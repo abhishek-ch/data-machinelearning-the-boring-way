@@ -39,6 +39,7 @@ kind load docker-image --name abc gcr.io/spark-operator/spark-operator:3.1.1
 kind load docker-image --name abc quay.io/minio/mc:RELEASE.2022-04-16T21-11-21Z  
 kind load docker-image --name abc quay.io/minio/minio:RELEASE.2022-04-26T01-20-24Z
 kind load docker-image --name abc pysparkexample:aws
+kind load docker-image --name abc k8s.gcr.io/git-sync/git-sync:v3.4.0
 ```
 ### Verify all loaded Images
 

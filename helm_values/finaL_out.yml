@@ -1,0 +1,30 @@
+Release "airflow" has been upgraded. Happy Helming!
+NAME: airflow
+LAST DEPLOYED: Sun May 15 12:02:58 2022
+NAMESPACE: default
+STATUS: deployed
+REVISION: 8
+TEST SUITE: None
+NOTES:
+Thank you for installing Apache Airflow 2.2.4!
+
+Your release is named airflow.
+You can now access your dashboard(s) by executing the following command(s) and visiting the corresponding port at localhost in your browser:
+
+Airflow Webserver:     kubectl port-forward svc/airflow-webserver 8080:8080 --namespace default
+Default Webserver (Airflow UI) Login credentials:
+    username: admin
+    password: admin
+Default Postgres connection credentials:
+    username: postgres
+    password: postgres
+    port: 5432
+
+You can get Fernet Key value by running the following:
+
+    echo Fernet Key: $(kubectl get secret --namespace default airflow-fernet-key -o jsonpath="{.data.fernet-key}" | base64 --decode)
+
+WARNING:
+    Kubernetes workers task logs may not persist unless you configure log persistence or remote logging!
+    Logging options can be found at: https://airflow.apache.org/docs/helm-chart/stable/manage-logs.html
+    (This warning can be ignored if logging is configured with environment variables or secrets backend)
