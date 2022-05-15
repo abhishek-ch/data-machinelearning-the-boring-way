@@ -1,7 +1,7 @@
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
-  name: userpartitions-by-account
+  name: userpartitions-by-account-{{ task.task_id }}.{{ ds }}.{{ task_instance.try_number }}
   namespace: default
 spec:
   sparkConf:
@@ -22,8 +22,8 @@ spec:
   imagePullPolicy: Never
   mainApplicationFile: local:///app/pyspark_jobs/accountbypartition.py
   arguments:
-    - s3a://spark-files/output/users2/
-    - s3a://spark-files/output/users2_account/
+    - {{ dag_run.conf.destination }}
+    - f"{{ dag_run.conf.destination }}_account"
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure

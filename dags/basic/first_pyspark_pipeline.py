@@ -34,8 +34,8 @@ with DAG(
     start = DummyOperator(task_id='start', dag=dag, trigger_rule='all_success')
 
     def print_variables(**context):
-        SOURCE = context["dag_run"].conf["source_path"]
-        DESTINATION = context["dag_run"].conf["destination_path"]
+        SOURCE = context["dag_run"].conf["source"]
+        DESTINATION = context["dag_run"].conf["destination"]
 
         print('Source Path {0}'.format(SOURCE))
         print('Destination Path {0}'.format(DESTINATION))

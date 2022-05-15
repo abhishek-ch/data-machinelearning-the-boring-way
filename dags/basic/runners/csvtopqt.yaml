@@ -1,14 +1,14 @@
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
-  name: csv-to-parquet
+  name: csv-to-parquet-{{ task.task_id }}.{{ ds }}.{{ task_instance.try_number }}
   namespace: default
 spec:
   sparkConf:
     "spark.ui.port": "4045"
     "spark.eventLog.enabled": "false"
-    "spark.hadoop.fs.s3a.access.key": "abhishek"
-    "spark.hadoop.fs.s3a.secret.key": "choudhary123"
+    "spark.hadoop.fs.s3a.access.key": "developer"
+    "spark.hadoop.fs.s3a.secret.key": "software123"
     "spark.hadoop.fs.s3a.endpoint": "http://minio:9000"
     "spark.hadoop.fs.s3n.impl": "org.apache.hadoop.fs.s3n.S3AFileSystem"
     "spark.hadoop.fs.s3n.fast.upload": "true"
@@ -22,8 +22,8 @@ spec:
   imagePullPolicy: Never
   mainApplicationFile: local:///app/pyspark_jobs/csvtoparquet.py
   arguments:
-    - s3a://spark-files/rawdata/sample/users.csv
-    - s3a://spark-files/output/users2/
+    - {{ dag_run.conf.source }}
+    - {{ dag_run.conf.destination }}
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure
