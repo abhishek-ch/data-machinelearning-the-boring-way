@@ -11,6 +11,8 @@ __pycache__/
 credentials
 credentials/
 credentials/*
+/credentials
+/credentials/*
 
 # Distribution / packaging
 .Python
