@@ -1,7 +1,7 @@
 # Setting up Apache Spark in Kubernetes
 
-[![Check Youtube Video For Setting up Spark](https://www.youtube.com/watch?v=1CGGTMvy67c)](https://www.youtube.com/watch?v=1CGGTMvy67c)](https://www.youtube.com/watch?v=1CGGTMvy67c)
-
+# SPARK ON k8s TUTORIAL
+[Check Youtube Video For Setting up Spark](https://www.youtube.com/watch?v=1CGGTMvy67c)
 
 ## Setting up Spark Using Helm 
 
