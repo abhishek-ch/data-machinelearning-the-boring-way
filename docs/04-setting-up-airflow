@@ -9,3 +9,8 @@ helm repo add apache-airflow https://airflow.apache.org
 helm upgrade --install airflow apache-airflow/airflow --namespace airflow --create-namespace
 ```
 * Go to helm dir and install `helm upgrade --install airflow apache-airflow/airflow -n default -f airflow_values.yaml`
+* Run the Airflow Spark Workflow `Basic_Transformation`
+
+![](images/airflow_job.png)
+* Trigger the job with conf `{"source":"s3://test-files/sample/users.csv","destination":"s3://test-files/sample/output/users"}`
+* 
