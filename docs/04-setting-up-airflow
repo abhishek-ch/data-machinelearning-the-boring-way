@@ -12,5 +12,5 @@ helm upgrade --install airflow apache-airflow/airflow --namespace airflow --crea
 * Run the Airflow Spark Workflow `Basic_Transformation`
 
 ![](images/airflow_job.png)
-* Trigger the job with conf `{"source":"s3://test-files/sample/users.csv","destination":"s3://test-files/sample/output/users"}`
+* Trigger the job with conf `{"source":"s3a://test-files/sample/users.csv","destination":"s3a://test-files/sample/output/users"}`
 * 

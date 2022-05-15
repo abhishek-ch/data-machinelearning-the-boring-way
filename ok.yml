@@ -1,14 +1,14 @@
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
-  name: userpartitions-by-account.{{ ds }}.{{ task_instance.try_number }}
+  name: user
   namespace: default
 spec:
   sparkConf:
     "spark.ui.port": "4045"
     "spark.eventLog.enabled": "false"
-    "spark.hadoop.fs.s3a.access.key": "developer"
-    "spark.hadoop.fs.s3a.secret.key": "software123"
+    "spark.hadoop.fs.s3a.access.key": "abhishek"
+    "spark.hadoop.fs.s3a.secret.key": "choudhary123"
     "spark.hadoop.fs.s3a.endpoint": "http://minio:9000"
     "spark.hadoop.fs.s3n.impl": "org.apache.hadoop.fs.s3n.S3AFileSystem"
     "spark.hadoop.fs.s3n.fast.upload": "true"
@@ -22,8 +22,8 @@ spec:
   imagePullPolicy: Never
   mainApplicationFile: local:///app/pyspark_jobs/accountbypartition.py
   arguments:
-    - {{ dag_run.conf.destination }}
-    - f"{{ dag_run.conf.destination }}_account"
+    - s3a://test-files/sample/output/users
+    - s3a://test-files/sample/output/users_account"
   sparkVersion: "3.1.1"
   restartPolicy:
     type: OnFailure
