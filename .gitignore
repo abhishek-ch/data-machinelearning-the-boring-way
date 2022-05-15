@@ -8,6 +8,10 @@ __pycache__/
 # C extensions
 *.so
 
+credentials
+credentials/
+credentials/*
+
 # Distribution / packaging
 .Python
 build/
