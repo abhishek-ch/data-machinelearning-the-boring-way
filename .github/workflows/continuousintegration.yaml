@@ -1,9 +1,14 @@
-name: Lint and Test Charts
+name: Validate Chart
 
 on:
-  pull_request:
-    paths:
-      - helm-charts/**'
+  # pull_request:
+  #   paths:
+  #     - helm-charts/**'
+  push:
+    branches:
+      - infrastructure
+      - main
+      - dev
 
 jobs:
   lint-docs:
