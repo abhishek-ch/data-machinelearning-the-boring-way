@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
         # with:
         #   fetch-depth: 0
 
@@ -34,3 +34,4 @@ jobs:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
           charts_dir: helm-charts
+          charts_repo_url: https://abhishek-ch.github.io/ata-machinelearning-the-boring-way
