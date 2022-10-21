@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "Running Helm Docs"
 CHART_DIRS="$(git diff --find-renames --name-only "$(git rev-parse --abbrev-ref HEAD)" remotes/origin/main -- 'valeriano-manassero' | grep '[cC]hart.yaml' | sed -e 's#/[Cc]hart.yaml##g')"
 HELM_DOCS_VERSION="1.12.0"
 
