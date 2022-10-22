@@ -3,6 +3,38 @@ entries:
   mlflow-server:
   - apiVersion: v2
     appVersion: 1.30.0
+    created: "2022-10-22T07:05:32.752003191Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.9.6
+    description: A Helm chart for MLFlow On Kubernetes
+    digest: c4e46975af459daa5039646278cbd75a805a3ea7a0e02a94865e5994acd4b716
+    home: https://mlflow.org/
+    icon: https://mlflow.org/images/MLflow-logo-final-white-TM.png
+    keywords:
+    - mlflow
+    - machinelearning
+    - mlops
+    - model tracking
+    - model versioning
+    - mlflow projects
+    - model registry
+    maintainers:
+    - email: abhishek.create@gmail.com
+      name: ABC
+      url: https://github.com/abhishek-ch
+    name: mlflow-server
+    sources:
+    - https://github.com/abhishek-ch/data-machinelearning-the-boring-way/tree/main/helm-charts
+    - https://mlflow.org/
+    type: application
+    urls:
+    - https://github.com/abhishek-ch/data-machinelearning-the-boring-way/releases/download/mlflow-server-0.1.6/mlflow-server-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: 1.30.0
     created: "2022-10-22T06:39:05.2601976Z"
     dependencies:
     - condition: postgresql.enabled
@@ -33,4 +65,4 @@ entries:
     urls:
     - https://github.com/abhishek-ch/data-machinelearning-the-boring-way/releases/download/mlflow-server-0.1.5/mlflow-server-0.1.5.tgz
     version: 0.1.5
-generated: "2022-10-22T06:39:05.2602113Z"
+generated: "2022-10-22T07:05:32.752019891Z"
