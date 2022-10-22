@@ -1,7 +1,8 @@
 apiVersion: v2
 name: mlflow-server
+version: 0.1.4
+appVersion: "1.30.0"
 description: A Helm chart for MLFlow On Kubernetes
-
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -16,8 +17,13 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.1.4
-appVersion: "1.0"
+
+
+home: https://mlflow.org/
+icon: https://mlflow.org/images/MLflow-logo-final-white-TM.png
+sources:
+  - https://github.com/abhishek-ch/data-machinelearning-the-boring-way/tree/main/helm-charts
+  - https://mlflow.org/
 maintainers:
   - name: ABC
     email: abhishek.create@gmail.com
@@ -27,3 +33,11 @@ dependencies:
   version: 11.9.6
   repository: https://charts.bitnami.com/bitnami
   condition: postgresql.enabled
+keywords:
+  - mlflow
+  - machinelearning
+  - mlops
+  - "model tracking"
+  - "model versioning"
+  - "mlflow projects"
+  - "model registry"
