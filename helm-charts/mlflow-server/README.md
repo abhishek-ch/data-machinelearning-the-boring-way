@@ -1,15 +1,23 @@
 # mlflow-server
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.0](https://img.shields.io/badge/AppVersion-1.0-informational?style=flat-square)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/mlflowserver)](https://artifacthub.io/packages/search?repo=mlflowserver)
 
+![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.30.0](https://img.shields.io/badge/AppVersion-1.30.0-informational?style=flat-square)
+
 A Helm chart for MLFlow On Kubernetes
+
+**Homepage:** <https://mlflow.org/>
 
 ## Maintainers
 
 | Name | Email | Url |
 | ---- | ------ | --- |
 | ABC | <abhishek.create@gmail.com> | <https://github.com/abhishek-ch> |
+
+## Source Code
+
+* <https://github.com/abhishek-ch/data-machinelearning-the-boring-way/tree/main/helm-charts>
+* <https://mlflow.org/>
 
 ## Requirements
 

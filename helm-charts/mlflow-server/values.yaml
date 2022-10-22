@@ -7,7 +7,7 @@
 replicaCount: 1
 
 image:
-  repository: mlflow
+  repository: buntha/mlflow
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "1.30.0"
@@ -68,7 +68,7 @@ artifact:
 # You need to change below configuration incase bringing own PostgresSQL instance and also set postgresql.enabled:false
 database:
   name: mlflow
-  host: 'abc-postgresql'
+  host: 'postgresql'
   port: "5432"
   db_user: superset
   db_pass: superset
