@@ -34,4 +34,4 @@ jobs:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
           charts_dir: helm-charts
-          charts_repo_url: https://abhishek-ch.github.io/data-machinelearning-the-boring-way
+          # charts_repo_url: https://abhishek-ch.github.io/data-machinelearning-the-boring-way
