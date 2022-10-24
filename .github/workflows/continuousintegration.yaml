@@ -1,14 +1,9 @@
 name: Validate Chart
 
 on:
-  # pull_request:
-  #   paths:
-  #     - helm-charts/**'
   push:
-    branches:
-      - infrastructure
-      - main
-      - dev
+  pull_request:
+    types: [synchronize, opened, reopened, ready_for_review]
 
 jobs:
   lint-docs:
