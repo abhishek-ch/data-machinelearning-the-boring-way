@@ -7,10 +7,15 @@
 replicaCount: 1
 
 image:
-  repository: buntha/mlflow
+  repository: mlflow
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.30.0"
+  tag: "2.1.1"
+
+initImage:
+  repository: jwilder/dockerize
+  tag: latest
+  pullPolicy: IfNotPresent
 
 imagePullSecrets: []
 nameOverride: ""
@@ -31,6 +36,8 @@ podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
 
+envFromSecret: '{{ template "mlflow-server.fullname" . }}-env'
+
 securityContext: {}
   # capabilities:
   #   drop:
@@ -42,11 +49,13 @@ securityContext: {}
 
 ## Extra environment variables that will be passed into pods
 ##
-extraEnv: {}
+extraEnv:
+ {}
 
 ## Extra environment variables in RAW format that will be passed into pods
 ##
-extraEnvRaw: []
+extraEnvRaw:
+ []
   # Load DB password from other secret (e.g. for zalando operator)
   # - name: DB_PASS
   #   valueFrom:
@@ -58,8 +67,8 @@ extraEnvRaw: []
 ## The name of the secret which we will use to populate env vars in deployed pods
 ## This can be useful for secret keys, etc.
 ##
-# envFromSecret: '{{ template "mlflow-server.fullname" . }}-env'
-## This can be a list of template strings
+envFromSecret: '{{ template "mlflow-server.fullname" . }}-env'
+# This can be a list of template strings
 # envFromSecrets: []
 
 artifact:
@@ -68,20 +77,34 @@ artifact:
 # You need to change below configuration incase bringing own PostgresSQL instance and also set postgresql.enabled:false
 database:
   name: mlflow
-  host: 'postgresql'
+  # You need to change below configuration incase bringing own PostgresSQL instance and also set postgresql.enabled:false
+  host: 'abc-postgresql'
   port: "5432"
-  db_user: superset
-  db_pass: superset
-  db_name: superset
+  db_user: mlflow
+  db_pass: mlflow
+  db_name: mlflow
   user: mlflow
   password: mlflow
   # If user provides secret ref 
-  valueFromSecretName: "" # Secret file holding the database credentials
-  valueFromSecretKey: "" # Key inside the secret file
+  valueFromSecretName: ~  # Secret file holding the database credentials
+  valueFromSecretKey: ~ # Key inside the secret file
 
 service:
   type: ClusterIP
   port: 5000
+
+
+initContainers:
+  - name: wait-for-postgres
+    image: "{{ .Values.initImage.repository }}:{{ .Values.initImage.tag }}"
+    imagePullPolicy: "{{ .Values.initImage.pullPolicy }}"
+    envFrom:
+      - secretRef:
+          name: "{{ tpl .Values.envFromSecret . }}"
+    command:
+      - /bin/sh
+      - -c
+      - dockerize -wait "tcp://$DB_HOST:$DB_PORT" -timeout 120s
 
 ingress:
   enabled: false

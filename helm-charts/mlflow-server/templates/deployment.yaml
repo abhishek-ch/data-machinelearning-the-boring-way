@@ -29,6 +29,10 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- if .Values.initContainers }}
+      initContainers:
+      {{-  tpl (toYaml .Values.initContainers) . | nindent 6 }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -40,23 +44,6 @@ spec:
               value: {{ .Values.service.port | quote}}
             - name: "ARTIFACT_STORE"
               value: {{ .Values.artifact.path | quote}}
-            - name: "DATABASE"
-              value: {{ .Values.database.name | quote}}              
-            - name: "HOST"
-              value: {{ .Values.database.host | quote}}
-            - name: "PORT"
-              value: {{ .Values.database.port | quote}}
-            - name: "USERNAME"
-              value: {{ .Values.database.user | quote}}
-            - name: "PASSWORD"
-            {{- if .Values.database.valueFromSecretName }}
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.database.valueFromSecretName }}
-                  key: {{ .Values.database.valueFromSecretKey }}
-            {{- else }}
-              value: {{ .Values.database.password  | quote}}
-            {{- end }}
             {{- range $key, $value := .Values.extraEnv }}
             - name: {{ $key | quote}}
               value: {{ $value | quote }}
@@ -64,8 +51,13 @@ spec:
             {{- if .Values.extraEnvRaw }}
             {{- toYaml .Values.extraEnvRaw | nindent 12 }}
             {{- end }}
-            - name: "DATABASE_URL"
-              value: "postgresql+psycopg2://{{ .Values.database.user }}:{{ .Values.database.password }}@{{ .Values.database.host }}:{{ .Values.database.port }}/{{ .Values.database.name }}"
+          envFrom:
+            - secretRef:
+                name: {{ tpl .Values.envFromSecret . | quote }}
+            {{- range .Values.envFromSecrets }}
+            - secretRef:
+                name: {{ tpl . $ | quote }}
+            {{- end }}    
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
