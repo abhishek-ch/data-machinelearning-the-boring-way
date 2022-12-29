@@ -1,7 +1,7 @@
 apiVersion: v2
 name: mlflow-server
-version: 0.1.7
-appVersion: "1.30.0"
+version: 0.1.8
+appVersion: "2.1.1"
 description: A Helm chart for MLFlow On Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
