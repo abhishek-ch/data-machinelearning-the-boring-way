@@ -29,7 +29,7 @@ spec:
         spec:
           restartPolicy: OnFailure
           containers:
-          - name: clean-pods
+          - name: podcleaner
             imagePullPolicy: IfNotPresent
             image: buntha/podcleaner:0.2
             env:
