@@ -16,7 +16,7 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: podcleaner
-  namespace: rwp
+  namespace: default
   labels:
     app: podcleaner
 spec:
