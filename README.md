@@ -63,3 +63,4 @@ _This is optional, kubectl is enough for getting all relevant stats from kuberne
 
 ## Lab Basic Setup
 * [Setting Up Kind](https://kind.sigs.k8s.io/docs/user/quick-start/)
+* Deleting older Pods [PodCleaner](/docs/05-cronjob-podcleaner.md)
